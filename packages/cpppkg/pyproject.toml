@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools", "pybind11"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cpppkg"
+version = "0.1.0"
+description = "A pybind11 example"
+license = {text = "MIT"}
+authors = [
+    {name = "quantumxiaol"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
