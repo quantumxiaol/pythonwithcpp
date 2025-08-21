@@ -13,7 +13,7 @@ __author__ = "quantumxiaol"
 # (假设 setup.py 已正确安装或 build_ext --inplace 生成了这些模块)
 try:
     from . import helloworld_ext
-    # from . import prime
+    from . import prime_ext
 except ImportError as e:
     # 更好的错误信息
     raise ImportError(f"Failed to import C extensions. Make sure they are compiled. Original error: {e}")
@@ -23,3 +23,9 @@ except ImportError as e:
 greet = helloworld_ext.py_greet
 add = helloworld_ext.py_add
 # version = helloworld_ext.version
+
+eratosthenes_sieve = prime_ext.py_eratosthenes_sieve
+linear_sieve = prime_ext.py_linear_sieve
+omp_prime_sieve = prime_ext.py_omp_prime_sieve
+naive_sieve= prime_ext.py_naive_prime_sieve
+optimized_naive_sieve = prime_ext.py_optimized_naive_prime_sieve

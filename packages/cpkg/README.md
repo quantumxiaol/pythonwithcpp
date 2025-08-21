@@ -66,6 +66,16 @@ where = ["."]
 include = ["*"]
 ```
 
+## omp find
+
+|平台|omp.h 查找|libomp 查找|
+|---|---|---|
+|macOS Apple Silicon|/opt/homebrew/opt/llvm/include|/opt/homebrew/lib|
+|macOS Intel|/usr/local/opt/llvm/include|/usr/local/lib|
+|Ubuntu/Debian|/usr/include|/usr/lib/x86_64-linux-gnu|
+|Conda 环境|$CONDA_PREFIX/include|$CONDA_PREFIX/lib|
+|Windows|忽略（MSVC 内置）|忽略（自动链接）|
+
 ## Uasge
 
 更新后使用

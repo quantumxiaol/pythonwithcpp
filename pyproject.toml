@@ -20,6 +20,7 @@ dev-dependencies = [
     "pybind11>=3.0.0",
     "pythonpkg",
     "cpppkg",
+    "cpkg",
 ]
 
 [tool.setuptools.packages.find]
@@ -32,3 +33,4 @@ where = ["packages"]
 [tool.uv.sources]
 pythonpkg = { path = "packages/pythonpkg", editable = true }
 cpppkg = { path = "packages/cpppkg", editable = true }
+cpkg = { path = "packages/cpkg", editable = true }

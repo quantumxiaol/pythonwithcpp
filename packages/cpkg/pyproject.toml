@@ -25,6 +25,17 @@ sources = [
 ]
 include-dirs = ["src/cpkg"]
 
+[[tool.setuptools.ext-modules]]
+name = "cpkg.prime_ext"
+sources = [
+    "src/cpkg/prime_ext.pyx",
+    "src/cpkg/prime.c"
+]
+include-dirs = ["src/cpkg"]
+
+extra-compile-args = ["-fopenmp", "-O2"]
+extra-link-args = ["-fopenmp"]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["*"]
