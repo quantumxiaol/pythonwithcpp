@@ -105,38 +105,38 @@
 
 ## 运行结果
 
-| Algorithm                  | Range           | C++ Time (ms) | Python Time (ms) |
-|----------------------------|------------------|---------------|------------------|
-| Naive Prime Sieve          | [2, 1000]        | 0             | 1                |
-| Naive Prime Sieve          | [2, 10000]       | 3             | 102              |
-| Naive Prime Sieve          | [2, 100000]      | 211           | 9572             |
-| Naive Prime Sieve          | [2, 1000000]     | 17503         | 634608           |
-| Naive Prime Sieve          | [2, 10000000]    | Skipped       | Skipped          |
-| Naive Prime Sieve          | [2, 100000000]   | Skipped       | Skipped          |
-| Optimized Naive            | [2, 1000]        | 0             | 0                |
-| Optimized Naive            | [2, 10000]       | 0             | 2                |
-| Optimized Naive            | [2, 100000]      | 1             | 46               |
-| Optimized Naive            | [2, 1000000]     | 43            | 1379             |
-| Optimized Naive            | [2, 10000000]    | 1057          | 34799            |
-| Optimized Naive            | [2, 100000000]   | 27390         | N/A              |
-| OpenMP Sieve               | [2, 1000]        | 1             | 4                |
-| OpenMP Sieve               | [2, 10000]       | 1             | 37               |
-| OpenMP Sieve               | [2, 100000]      | 3             | 539              |
-| OpenMP Sieve               | [2, 1000000]     | 16            | 6976             |
-| OpenMP Sieve               | [2, 10000000]    | 275           | 163681           |
-| OpenMP Sieve               | [2, 100000000]   | 6930          | N/A              |
-| Eratosthenes Sieve         | [2, 1000]        | 0             | 0                |
-| Eratosthenes Sieve         | [2, 10000]       | 0             | 0                |
-| Eratosthenes Sieve         | [2, 100000]      | 0             | 3                |
-| Eratosthenes Sieve         | [2, 1000000]     | 4             | 58               |
-| Eratosthenes Sieve         | [2, 10000000]    | 42            | 616              |
-| Eratosthenes Sieve         | [2, 100000000]   | 405           | N/A              |
-| Linear Sieve               | [2, 1000]        | 0             | 0                |
-| Linear Sieve               | [2, 10000]       | 0             | 0                |
-| Linear Sieve               | [2, 100000]      | 0             | 8                |
-| Linear Sieve               | [2, 1000000]     | 3             | 95               |
-| Linear Sieve               | [2, 10000000]    | 50            | 901              |
-| Linear Sieve               | [2, 100000000]   | 473           | N/A              |
+| Algorithm                  | Range           | C++ Time (ms) | Python Time (ms) | C Time (ms) |
+|----------------------------|------------------|---------------|------------------|-------------|
+| Naive Prime Sieve          | [2, 1000]        | 0             | 1                | 0           |
+| Naive Prime Sieve          | [2, 10000]       | 3             | 102              | 3           |
+| Naive Prime Sieve          | [2, 100000]      | 211           | 9572             | 284         |
+| Naive Prime Sieve          | [2, 1000000]     | 17503         | 634608           | 24555       |
+| Naive Prime Sieve          | [2, 10000000]    | Skipped       | Skipped          | Skipped     |
+| Naive Prime Sieve          | [2, 100000000]   | Skipped       | Skipped          | Skipped     |
+| Optimized Naive            | [2, 1000]        | 0             | 0                | 0           |
+| Optimized Naive            | [2, 10000]       | 0             | 2                | 0           |
+| Optimized Naive            | [2, 100000]      | 1             | 46               | 2           |
+| Optimized Naive            | [2, 1000000]     | 43            | 1379             | 95          |
+| Optimized Naive            | [2, 10000000]    | 1057          | 34799            | 1409        |
+| Optimized Naive            | [2, 100000000]   | 27390         | N/A              | 36916       |
+| OpenMP Sieve               | [2, 1000]        | 1             | 4                | 2           |
+| OpenMP Sieve               | [2, 10000]       | 1             | 37               | 0           |
+| OpenMP Sieve               | [2, 100000]      | 3             | 539              | 1           |
+| OpenMP Sieve               | [2, 1000000]     | 16            | 6976             | 21          |
+| OpenMP Sieve               | [2, 10000000]    | 275           | 163681           | 417         |
+| OpenMP Sieve               | [2, 100000000]   | 6930          | N/A              | 10106       |
+| Eratosthenes Sieve         | [2, 1000]        | 0             | 0                | 0           |
+| Eratosthenes Sieve         | [2, 10000]       | 0             | 0                | 0           |
+| Eratosthenes Sieve         | [2, 100000]      | 0             | 3                | 0           |
+| Eratosthenes Sieve         | [2, 1000000]     | 4             | 58               | 6           |
+| Eratosthenes Sieve         | [2, 10000000]    | 42            | 616              | 55          |
+| Eratosthenes Sieve         | [2, 100000000]   | 405           | N/A              | 572         |
+| Linear Sieve               | [2, 1000]        | 0             | 0                | 0           |
+| Linear Sieve               | [2, 10000]       | 0             | 0                | 0           |
+| Linear Sieve               | [2, 100000]      | 0             | 8                | 0           |
+| Linear Sieve               | [2, 1000000]     | 3             | 95               | 6           |
+| Linear Sieve               | [2, 10000000]    | 50            | 901              | 47          |
+| Linear Sieve               | [2, 100000000]   | 473           | N/A              | 491         |
 
 ## 问题分析
 埃氏筛法通常使用一个布尔数组来标记质数，这种数组访问模式更容易利用现代计算机的缓存机制。线性筛法可能涉及更多的随机访问，导致缓存命中率较低，从而影响性能。
