@@ -49,7 +49,7 @@ def get_build_args():
     elif is_windows():
         # Windows —— MSVC 使用 /openmp
         print("🔧 Detected Windows. Using MSVC /openmp.")
-        extra_compile_args = ["/O2", "/openmp"]
+        extra_compile_args = ["/O2", "/openmp", "/utf-8"]
         # MSVC 通常自动链接，无需额外 link args
     else:
         raise RuntimeError(f"Unsupported platform: {sys.platform}")

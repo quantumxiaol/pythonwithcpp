@@ -40,12 +40,24 @@ Ubuntu上使用gcc 编译
 
 Windows上使用MSVC 编译，安装Visual Studio 后，会自动链接编译器到环境变量中。
 
+### Proxy
+
+    # windows powershell
+    $env:HTTP_PROXY="http://127.0.0.1:10808"
+    $env:HTTPS_PROXY="http://127.0.0.1:10808"
+    # MacOS/Linux
+    export HTTP_PROXY="http://127.0.0.1:10808"
+    export HTTPS_PROXY="http://127.0.0.1:10808"
+
 ## Environment
 
 使用uv进行环境管理
 
     uv venv
+    # MacOS/Linux
     source .venv/bin/activate
+    # Windows
+    .venv/Scripts/activate
     uv lock
     uv sync
 

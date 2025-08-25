@@ -56,7 +56,7 @@ def get_build_args():
 
     elif is_windows():
         print("🔧 Detected Windows. Using MSVC /openmp.")
-        extra_compile_args = ["/O2", "/openmp"]
+        extra_compile_args = ["/O2", "/openmp", "/utf-8"]
         # MSVC 自动链接
 
     else:

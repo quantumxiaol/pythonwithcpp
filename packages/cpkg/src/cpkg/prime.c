@@ -76,8 +76,9 @@ void omp_prime_sieve(long n, LongVector* primes) {
         LongVector thread_primes;
         long_vector_init(&thread_primes);
 
+        long int i,k;
         #pragma omp for
-        for (long i = 2; i <= n; ++i) {
+        for (i = 2; i <= n; ++i) {
             bool is_prime = true;
             long limit = (long)sqrt(i);
             for (long j = 2; j <= limit; ++j) {
@@ -94,7 +95,7 @@ void omp_prime_sieve(long n, LongVector* primes) {
         // 合并结果
         #pragma omp critical
         {
-            for (int k = 0; k < thread_primes.size; ++k) {
+            for (k = 0; k < thread_primes.size; ++k) {
                 long_vector_push(primes, thread_primes.data[k]);
             }
         }
