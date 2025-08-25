@@ -1,6 +1,7 @@
 import math
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import ProcessPoolExecutor
 from typing import List
 
 
@@ -52,7 +53,7 @@ def _is_prime_single(i: int) -> int:
 
 
 def omp_prime_sieve(n: int) -> List[int]:
-    """模拟 OpenMP 多线程试除法"""
+    """模拟 OpenMP 多线程试除法（受 GIL 限制）"""
     primes = []
     with ThreadPoolExecutor() as executor:
         futures = [executor.submit(_is_prime_single, i) for i in range(2, n + 1)]
@@ -63,7 +64,17 @@ def omp_prime_sieve(n: int) -> List[int]:
     primes.sort()  # 保证顺序
     return primes
 
-
+def omp_prime_sieve_multiprocessing(n: int) -> List[int]:
+    """使用多进程（不受 GIL 限制）"""
+    primes = []
+    with ProcessPoolExecutor() as executor:
+        futures = [executor.submit(_is_prime_single, i) for i in range(2, n + 1)]
+        for future in as_completed(futures):
+            result = future.result()
+            if result is not None:
+                primes.append(result)
+    primes.sort()
+    return primes
 def eratosthenes_sieve(n: int) -> List[int]:
     """埃拉托斯特尼筛法"""
     if n < 2:

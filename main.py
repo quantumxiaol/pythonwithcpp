@@ -1,5 +1,5 @@
 def main():
-    print("Hello from python with cpp!")
+    print("Hello from python with c/cpp!")
 
 
 if __name__ == "__main__":

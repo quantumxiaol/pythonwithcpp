@@ -6,6 +6,7 @@ from pythonpkg.prime import (
     naive_prime_sieve,
     optimized_naive_prime_sieve,
     omp_prime_sieve,
+    omp_prime_sieve_multiprocessing,
     eratosthenes_sieve,
     linear_sieve     
 )
@@ -33,9 +34,15 @@ def main(n: int, compare_naive: bool = False):
 
     # 3. OpenMP模拟
     start = time.perf_counter()
-    results['omp'] = omp_prime_sieve(n)
+    results['omp_thearding'] = omp_prime_sieve(n)
     end = time.perf_counter()
     print(f"OpenMP Prime Sieve: {int((end - start) * 1000)}ms")
+
+    # # 3. OpenMP多线程
+    # start = time.perf_counter()
+    # results['omp_multiprocessing'] = omp_prime_sieve_multiprocessing(n)
+    # end = time.perf_counter()
+    # print(f"OpenMP Prime Sieve(Multiprocessing): {int((end - start) * 1000)}ms")
 
     # 4. 埃氏筛
     start = time.perf_counter()
