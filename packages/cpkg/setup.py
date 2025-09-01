@@ -52,7 +52,7 @@ def get_build_args():
     elif is_linux():
         print("🔧 Detected Linux. Using -fopenmp.")
         extra_compile_args = ["-O2", "-fopenmp", "-std=c11"]
-        extra_link_args = ["-fopenmp", "-lomp"]  # 某些发行版需显式链接
+        extra_link_args = ["-fopenmp"]  # 某些发行版可能需显式链接
 
     elif is_windows():
         print("🔧 Detected Windows. Using MSVC /openmp.")
